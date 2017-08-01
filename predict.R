@@ -1,6 +1,5 @@
-
-
 #Predicts labels using X as a feature matrix and theta as the corresponding parameter matrix
+
 predict = function(X, theta) {
   #save the number of training examples
   m = nrow(X)
