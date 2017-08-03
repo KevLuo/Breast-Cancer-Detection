@@ -2,7 +2,7 @@
 
 KEYWORDS:  Machine Learning, Logistic Regression, Built-from-scratch, R
 
-WHY:  Doctors make mistakes.  Computers can help resolve that.
+WHY:  Doctors aren't perfect.  Computers can have their back.
 
 WHAT:  This program is ~97% accurate at predicting whether or not a given tumor is cancerous.  Its input is a set
 of features extracted from an image and its output is a classification as either malignant (cancerous) or benign.
