@@ -1,6 +1,6 @@
 # Breast-Cancer-Detection
 
-KEYWORDS:  Machine Learning, Logistic Regression, Built-from-scratch, R
+KEYWORDS:  Machine Learning, Logistic Regression, R
 
 WHY:  Doctors aren't perfect.  Computers can have their back.
 
