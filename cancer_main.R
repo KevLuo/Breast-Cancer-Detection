@@ -1,6 +1,7 @@
 library(ggplot2)
 source("sigmoid.R")
 source("cost+gradient.R")
+#source("reg_cost+gradient.R")
 source("gradientDescent.R")
 source("predict.R")
 
