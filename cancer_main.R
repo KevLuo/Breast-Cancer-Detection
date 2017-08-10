@@ -1,9 +1,11 @@
 library(ggplot2)
 source("sigmoid.R")
-source("cost+gradient.R")
-#source("reg_cost+gradient.R")
-source("gradientDescent.R")
+#source("cost+gradient.R")
+source("reg_cost+gradient.R")
+#source("gradientDescent.R")
+source("reg_gradientDescent.R")
 source("predict.R")
+source("validationCurve.R")
 
 #load in the dataset
 #dataset contains 569 examples with 33 variables each
@@ -55,8 +57,8 @@ y_test = y[-sample, ]
 #initialize parameters -- size is 32 x 1 (includes extra zero for the bias term)
 initial_theta = matrix(0, 32, 1)
 
-#calculate and store the cost & gradient (cost() returns them in a list)
-cost_grad_list = cost(initial_theta, X_train, y_train)
+#calculate and store the initial cost & gradient (cost() returns them in a list)
+cost_grad_list = reg_cost(initial_theta, X_train, y_train, 1)
 #extract the cost
 model_cost = cost_grad_list$cost
 #gradient is 32 x 1 (one for each theta parameter)
@@ -67,7 +69,7 @@ gradient = cost_grad_list$gradient
 #MINIMIZE COST
 
 #perform gradient descent to optimize parameters
-result = gradientDescent(X_train, y_train, initial_theta, 0.05, 400)
+result = regGradientDescent(X_train, y_train, initial_theta, 0.05, 400, 0)
 #extract parameters
 theta = result$theta
 #extract cost history to check if cost is actually decreasing each iteration
@@ -83,8 +85,15 @@ accuracy = mean(predictions == y_test)
 print(cost_history)
 print(accuracy)
 
+#visualize lambda effects
+learningCurveInfo = validationCurve(X_train, y_train, X_test, y_test)
+lambda_vec = learningCurveInfo$lambda_vec
+error_train = learningCurveInfo$error_train
+error_val = learningCurveInfo$error_val
 
-
-
-
+#plot effect of increasing lambda
+#conclusion from graphs:  lambda best off as zero
+plot(lambda_vec, error_train, col = 'blue')
+par(new = TRUE)
+plot(lambda_vec, error_val, col = 'red')
 

@@ -9,7 +9,7 @@ gradientDescent = function(X, y, theta, alpha, num_iterations) {
   
   for (iteration in 1:num_iterations) {
     theta = theta - ( (alpha/m) * t(X) %*% (sigmoid(X %*% theta) - y) )
-    temp_cost = cost(theta, X, y)
+    temp_cost = reg_cost(theta, X, y, 0)
     
     J_history[iteration, 1] = temp_cost$cost
   }
