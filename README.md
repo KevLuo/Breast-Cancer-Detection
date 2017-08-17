@@ -1,7 +1,5 @@
 # Breast-Cancer-Detection
 
-KEYWORDS:  Machine Learning, Logistic Regression, R
-
 Overview:  This program is ~98% accurate at predicting whether or not a given tumor is cancerous.  Its input is a set
 of features extracted from an image and its output is a classification as either malignant (cancerous) or benign.
 
